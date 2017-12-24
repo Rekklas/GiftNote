@@ -5,6 +5,7 @@ import java.util.UUID;
 
 /**
  * Created by user on 24.12.2017.
+ * Model class which represents gift objects
  */
 
 public class Gift {
