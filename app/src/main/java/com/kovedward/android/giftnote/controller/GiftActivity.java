@@ -1,7 +1,9 @@
-package com.kovedward.android.giftnote;
+package com.kovedward.android.giftnote.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.kovedward.android.giftnote.R;
 
 public class GiftActivity extends AppCompatActivity {
 
