@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GiftNote</string>
+    
+    <string name="gift_title_label">Title</string>
+    <string name="gift_title_hint">Enter a title for the gift</string>
+    <string name="gift_details_label">Details</string>
 </resources>

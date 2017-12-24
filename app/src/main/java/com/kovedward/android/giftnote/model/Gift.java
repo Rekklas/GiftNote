@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Created by user on 24.12.2017.
+ * This class is a model for gift objects
  */
 
 public class Gift {
