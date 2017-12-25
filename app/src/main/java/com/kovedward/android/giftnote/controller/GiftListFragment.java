@@ -1,5 +1,6 @@
 package com.kovedward.android.giftnote.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,11 +41,26 @@ public class GiftListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
+    /**
+     * This method updates the UI of list page
+     */
+
     private void updateUI(){
         GiftLab giftLab = GiftLab.getGiftLab(getActivity());
         List<Gift> gifts = giftLab.getGifts();
-        mAdapter = new GiftAdapter(gifts);
-        mGiftRecyclerView.setAdapter(mAdapter);
+
+        if (mAdapter == null) {
+            mAdapter = new GiftAdapter(gifts);
+            mGiftRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private class GiftHolder extends RecyclerView.ViewHolder
@@ -71,7 +87,8 @@ public class GiftListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-
+            Intent intent = GiftActivity.newIntent(getActivity(), mGift.getId());
+            startActivity(intent);
         }
     }
 

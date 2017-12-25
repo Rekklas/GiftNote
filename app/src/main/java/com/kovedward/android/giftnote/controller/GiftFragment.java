@@ -13,6 +13,9 @@ import android.widget.EditText;
 
 import com.kovedward.android.giftnote.R;
 import com.kovedward.android.giftnote.model.Gift;
+import com.kovedward.android.giftnote.model.GiftLab;
+
+import java.util.UUID;
 
 /**
  * This class is controller which interacts with model's and view's objects.
@@ -21,13 +24,28 @@ import com.kovedward.android.giftnote.model.Gift;
 
 public class GiftFragment extends Fragment {
 
+    public static final String ARG_GIFT_ID = "gift_id";
+
     private Gift mGift;
     private EditText mTitleField;
     private Button mDateButton;
 
+    public static GiftFragment newInstance(UUID giftId) {
+        
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_GIFT_ID, giftId);
+        
+        GiftFragment fragment = new GiftFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        UUID giftId = (UUID) getArguments().getSerializable(ARG_GIFT_ID);
+        mGift = GiftLab.getGiftLab(getActivity()).getGift(giftId);
     }
 
     @Nullable
@@ -36,6 +54,7 @@ public class GiftFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_gift, container, false);
 
         mTitleField = (EditText) v.findViewById(R.id.gift_title);
+        mTitleField.setText(mGift.getTitle());
         mTitleField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
