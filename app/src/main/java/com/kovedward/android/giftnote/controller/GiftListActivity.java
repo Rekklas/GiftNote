@@ -2,10 +2,14 @@ package com.kovedward.android.giftnote.controller;
 
 import android.support.v4.app.Fragment;
 
-public class GiftActivity extends SingleFragmentActivity {
+/**
+ * Created by user on 25.12.2017.
+ */
+
+public class GiftListActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-        return new GiftFragment();
+        return null;
     }
 }
