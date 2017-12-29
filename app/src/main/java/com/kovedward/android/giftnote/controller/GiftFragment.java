@@ -77,4 +77,11 @@ public class GiftFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        GiftLab.getGiftLab(getActivity())
+                .updateGift(mGift);
+    }
 }

@@ -59,6 +59,7 @@ public class GiftListFragment extends Fragment {
             mAdapter = new GiftAdapter(gifts);
             mGiftRecyclerView.setAdapter(mAdapter);
         } else {
+            mAdapter.setGifts(gifts);
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -115,6 +116,10 @@ public class GiftListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return mGifts.size();
+        }
+
+        public void setGifts(List<Gift> gifts) {
+            mGifts = gifts;
         }
     }
 }

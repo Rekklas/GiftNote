@@ -15,7 +15,12 @@ public class Gift {
     private String mGiftGiver;
 
     public Gift() {
-        mId = UUID.randomUUID();
+        this(UUID.randomUUID());
+    }
+
+    public Gift(UUID id){
+        mId = id;
+        mDateReceived = new Date();
     }
 
     public UUID getId() {
