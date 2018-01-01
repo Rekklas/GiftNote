@@ -88,7 +88,7 @@ public class GiftListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = GiftActivity.newIntent(getActivity(), mGift.getId());
+            Intent intent = GiftPagerActivity.newIntent(getActivity(), mGift.getId());
             startActivity(intent);
         }
     }
